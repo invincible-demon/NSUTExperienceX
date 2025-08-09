@@ -44,9 +44,3 @@ A MERN stack blog application for NSUT students to share placement experiences a
 ## 📄 License
 
 This project is licensed under the ISC License.
-
-## 🙏 Acknowledgments
-
-- NSUT students for sharing their experiences
-- Open source community for amazing tools
-- Cloudinary and Firebase for free tiers
