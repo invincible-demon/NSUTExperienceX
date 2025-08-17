@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      // Only @nsut.ac.in emails are allowed
     },
     password: {
       type: String,
@@ -24,6 +25,14 @@ const userSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    isEmailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    emailVerifiedAt: {
+      type: Date,
+      default: null,
     },
   },
   { timestamps: true }

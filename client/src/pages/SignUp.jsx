@@ -8,35 +8,49 @@ export default function SignUp() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
       return setErrorMessage('Please fill out all fields.');
     }
+
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await fetch('/api/auth/signup', {
+
+      // Send OTP first
+      const res = await fetch('/api/otp/send-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ email: formData.email }),
       });
+
       const data = await res.json();
-      if (data.success === false) {
-        return setErrorMessage(data.message);
-      }
-      setLoading(false);
-      if(res.ok) {
-        navigate('/sign-in');
+
+      if (res.ok) {
+        // Navigate to OTP verification page with form data
+        navigate('/verify-otp', {
+          state: {
+            email: formData.email,
+            username: formData.username,
+            password: formData.password,
+          },
+        });
+      } else {
+        setErrorMessage(data.message);
       }
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage('Something went wrong. Please try again.');
+    } finally {
       setLoading(false);
     }
   };
+
   return (
     <div className='min-h-screen mt-20'>
       <div className='flex p-3 max-w-4xl mx-auto flex-col md:flex-row md:items-center gap-10'>
@@ -56,7 +70,10 @@ export default function SignUp() {
           </p>
 
           <p className="text-sm mt-6 text-gray-400">
-            You can sign up with your email and password or continue with Google.
+            You can sign up with your NSUT email and password or continue with Google.
+          </p>
+          <p className="text-xs mt-2 text-gray-500">
+            Only @nsut.ac.in email addresses are allowed.
           </p>
         </div>
         {/* right */}
@@ -76,7 +93,7 @@ export default function SignUp() {
               <Label value='Your email' />
               <TextInput
                 type='email'
-                placeholder='name@company.com'
+                placeholder='yourname@nsut.ac.in'
                 id='email'
                 onChange={handleChange}
               />
@@ -98,10 +115,10 @@ export default function SignUp() {
               {loading ? (
                 <>
                   <Spinner size='sm' />
-                  <span className='pl-3'>Loading...</span>
+                  <span className='pl-3'>Sending OTP...</span>
                 </>
               ) : (
-                'Sign Up'
+                'Send Verification Code'
               )}
             </Button>
             <OAuth />

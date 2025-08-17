@@ -61,7 +61,10 @@ export default function SignIn() {
           </p>
 
           <p className="text-sm mt-6 text-gray-400">
-            You can sign in with your email and password or continue with Google.
+            You can sign in with your NSUT email and password or continue with Google.
+          </p>
+          <p className="text-xs mt-2 text-gray-500">
+            Only @nsut.ac.in email addresses are allowed.
           </p>
         </div>
         {/* right */}
@@ -72,7 +75,7 @@ export default function SignIn() {
               <Label value='Your email' />
               <TextInput
                 type='email'
-                placeholder='name@company.com'
+                placeholder='yourname@nsut.ac.in'
                 id='email'
                 onChange={handleChange}
               />

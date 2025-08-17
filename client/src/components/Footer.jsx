@@ -1,6 +1,6 @@
 import { Footer } from 'flowbite-react';
 import { Link } from 'react-router-dom';
-import { BsFacebook, BsInstagram, BsTwitter, BsGithub, BsDribbble } from 'react-icons/bs';
+import { BsInstagram, BsGithub } from 'react-icons/bs';
 export default function FooterCom() {
   return (
     <Footer container className='border border-t-8 border-teal-500'>
@@ -17,30 +17,16 @@ export default function FooterCom() {
             </Link>
           </div>
           <div className='grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6'>
-            {/*
-            <div>
-              <Footer.Title title='About' />
-              <Footer.LinkGroup col>
-                <Footer.Link
-                  href='https://www.100jsprojects.com'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  100 JS Projects
-                </Footer.Link>
-                <Footer.Link
-                  href='/about'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  Sahand's Blog
-                </Footer.Link>
-              </Footer.LinkGroup>
-            </div>
-            */}
             <div>
               <Footer.Title title='Follow us' />
               <Footer.LinkGroup col>
+                <Footer.Link
+                  href='https://www.instagram.com/ash___gupta'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Instagram
+                </Footer.Link>
                 <Footer.Link
                   href='https://github.com/invincible-demon'
                   target='_blank'
@@ -67,7 +53,7 @@ export default function FooterCom() {
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
-            <Footer.Icon href='#' icon={BsInstagram} />
+            <Footer.Icon href='https://www.instagram.com/ash___gupta' icon={BsInstagram} />
             <Footer.Icon href='https://github.com/invincible-demon' icon={BsGithub} />
           </div>
         </div>
