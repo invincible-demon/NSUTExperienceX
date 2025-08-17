@@ -62,6 +62,7 @@ A MERN stack blog application for NSUT students to share placement experiences a
    EMAIL_USER=your_gmail_address@gmail.com
    EMAIL_PASS=your_gmail_app_password
    CLIENT_URL=http://localhost:3000
+   PORT=5000
    ```
    
    Create `.env` file in client directory:
@@ -77,7 +78,7 @@ A MERN stack blog application for NSUT students to share placement experiences a
    ```
 
 5. **Open your browser**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:5000`
 
 ## 🔧 Environment Variables
 
@@ -87,6 +88,7 @@ A MERN stack blog application for NSUT students to share placement experiences a
 - `EMAIL_USER`: Gmail address for sending emails
 - `EMAIL_PASS`: Gmail app password (not regular password)
 - `CLIENT_URL`: Frontend URL for email links
+- `PORT`: Server port (default: 5000)
 
 ### Frontend (.env in client)
 - `VITE_FIREBASE_API_KEY`: Firebase API key
@@ -124,28 +126,6 @@ To enable email verification, you need to:
    - Generate a new app password for "Mail"
 3. **Use the app password** in your `EMAIL_PASS` environment variable
 
-## 🚀 Deployment
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is licensed under the ISC License.
-
-## 👥 Authors
-
-- **Your Name** - *Initial work* - [YourGitHub](https://github.com/yourusername)
-
-## 🙏 Acknowledgments
-
-- NSUT students for sharing their experiences
-- Open source community for amazing tools
-- Cloudinary and Firebase for free tiers
