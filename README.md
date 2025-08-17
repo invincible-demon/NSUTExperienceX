@@ -13,6 +13,7 @@ A MERN stack blog application for NSUT students to share placement experiences a
 - **Real-time Updates**: Redux state management
 - **Admin Panel**: Admin-only post creation and management
 
+
 ## 🛠️ Tech Stack
 
 ### Frontend
